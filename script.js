@@ -111,7 +111,13 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.14 });
 
-document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
+document.querySelectorAll('.reveal').forEach((node) => {
+  const rect = node.getBoundingClientRect();
+  if (rect.top < window.innerHeight * 0.92) {
+    node.classList.add('visible');
+  }
+  observer.observe(node);
+});
 
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightboxImage');
