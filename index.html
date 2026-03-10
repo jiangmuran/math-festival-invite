@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数学节嘉年华邀请函</title>
+    <meta name="description" content="一起走进数学节嘉年华：海报预览、摊位介绍、活动亮点与入场动画。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+      <div class="loading-orbit"></div>
+      <div class="loading-core">π</div>
+      <p>数学节嘉年华邀请函正在展开…</p>
+    </div>
+
+    <div class="math-bg math-bg--1"></div>
+    <div class="math-bg math-bg--2"></div>
+
+    <header class="hero section reveal">
+      <div class="hero-copy">
+        <p class="eyebrow">MATH FESTIVAL CARNIVAL</p>
+        <h1>来参加我们的<br />数学节嘉年华</h1>
+        <p class="hero-text">
+          一场把公式、谜题、几何、博弈、创意手作都变成“可玩、可看、可拍照”的校园邀请函。
+          点开后先看主海报，再一路逛到每个摊位，提前感受现场氛围。
+        </p>
+        <div class="hero-meta">
+          <span>📍 校园中心广场</span>
+          <span>🗓 数学节主题周</span>
+          <span>✨ 全天候打卡</span>
+        </div>
+        <a class="hero-button" href="#posterWall">开始逛海报</a>
+      </div>
+      <div class="hero-poster-wrap float-card">
+        <div class="hero-glow"></div>
+        <img id="heroPoster" class="hero-poster" alt="数学节嘉年华主海报" />
+      </div>
+    </header>
+
+    <main>
+      <section class="section intro reveal">
+        <div class="section-title">
+          <p class="eyebrow">活动亮点</p>
+          <h2>先被海报吸引，再被现场留下</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card float-card">
+            <span>01</span>
+            <h3>大海报沉浸开场</h3>
+            <p>一打开就是主视觉海报，配合入场动画，像点开一封会发光的邀请函。</p>
+          </article>
+          <article class="feature-card float-card">
+            <span>02</span>
+            <h3>摊位预览一眼看懂</h3>
+            <p>每个摊位都做成独立卡片，提前知道玩什么、拍什么、适合和谁一起去。</p>
+          </article>
+          <article class="feature-card float-card">
+            <span>03</span>
+            <h3>动画感更有节日气氛</h3>
+            <p>滚动、悬浮、渐显和粒子背景会一起动起来，但不会花里胡哨得头晕。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section poster-wall reveal" id="posterWall">
+        <div class="section-title sticky-title">
+          <p class="eyebrow">海报一览</p>
+          <h2>数学节嘉年华摊位地图</h2>
+          <p>点击海报可放大查看，适合直接发到群里让大家先种草。</p>
+        </div>
+        <div class="poster-grid" id="posterGrid"></div>
+      </section>
+
+      <section class="section timeline reveal">
+        <div class="section-title">
+          <p class="eyebrow">逛展建议</p>
+          <h2>你可以这样玩一圈</h2>
+        </div>
+        <div class="timeline-list">
+          <div class="timeline-item float-card">
+            <b>先签到打卡</b>
+            <p>到主舞台区领取集章卡，拍主海报合影，直接进入节日状态。</p>
+          </div>
+          <div class="timeline-item float-card">
+            <b>再去挑战区</b>
+            <p>谜题、博弈、速算、几何拼搭这些最适合和朋友组队，现场会更热闹。</p>
+          </div>
+          <div class="timeline-item float-card">
+            <b>最后收集纪念感</b>
+            <p>把喜欢的摊位都拍一遍，顺手把邀请函链接转给更多人来逛。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="关闭">×</button>
+      <img id="lightboxImage" alt="放大海报" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
