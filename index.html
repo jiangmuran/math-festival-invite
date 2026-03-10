@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>数学节嘉年华邀请函</title>
     <meta name="description" content="一起走进数学节嘉年华：海报预览、摊位介绍、活动亮点与入场动画。" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,14 +26,17 @@
         <h1>来参加我们的<br />数学节嘉年华</h1>
         <p class="hero-text">
           一场把公式、谜题、几何、博弈、创意手作都变成“可玩、可看、可拍照”的校园邀请函。
-          点开后先看主海报，再一路逛到每个摊位，提前感受现场氛围。
+          手机上点开也顺手，先看主海报，再一路逛到每个摊位。
         </p>
         <div class="hero-meta">
           <span>📍 校园中心广场</span>
           <span>🗓 数学节主题周</span>
-          <span>✨ 全天候打卡</span>
+          <span>📱 手机端已优化</span>
         </div>
-        <a class="hero-button" href="#posterWall">开始逛海报</a>
+        <div class="hero-actions">
+          <a class="hero-button" href="#posterWall">开始逛海报</a>
+          <button class="ghost-button" id="openHeroPoster" type="button">查看主海报</button>
+        </div>
       </div>
       <div class="hero-poster-wrap float-card">
         <div class="hero-glow"></div>
@@ -50,18 +53,18 @@
         <div class="feature-grid">
           <article class="feature-card float-card">
             <span>01</span>
-            <h3>大海报沉浸开场</h3>
-            <p>一打开就是主视觉海报，配合入场动画，像点开一封会发光的邀请函。</p>
+            <h3>主视觉开场</h3>
+            <p>一打开就是主海报，适合直接发群，点进来就有活动气氛。</p>
           </article>
           <article class="feature-card float-card">
             <span>02</span>
-            <h3>摊位预览一眼看懂</h3>
-            <p>每个摊位都做成独立卡片，提前知道玩什么、拍什么、适合和谁一起去。</p>
+            <h3>照片与海报混排</h3>
+            <p>现在已经支持放真实照片，后面你把图给我，我直接替换进去。</p>
           </article>
           <article class="feature-card float-card">
             <span>03</span>
-            <h3>动画感更有节日气氛</h3>
-            <p>滚动、悬浮、渐显和粒子背景会一起动起来，但不会花里胡哨得头晕。</p>
+            <h3>手机滑动更顺</h3>
+            <p>移动端改成横向滑动卡片流，单手也能舒服地看完整套内容。</p>
           </article>
         </div>
       </section>
@@ -70,7 +73,7 @@
         <div class="section-title sticky-title">
           <p class="eyebrow">海报一览</p>
           <h2>数学节嘉年华摊位地图</h2>
-          <p>点击海报可放大查看，适合直接发到群里让大家先种草。</p>
+          <p>移动端可以左右滑动；点击任意海报或照片可放大查看。</p>
         </div>
         <div class="poster-grid" id="posterGrid"></div>
       </section>
@@ -96,6 +99,8 @@
         </div>
       </section>
     </main>
+
+    <a class="mobile-cta" href="#posterWall">↓ 往下滑看全部海报</a>
 
     <div class="lightbox" id="lightbox" aria-hidden="true">
       <button class="lightbox-close" id="lightboxClose" aria-label="关闭">×</button>
