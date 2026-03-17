@@ -1,81 +1,90 @@
-const svgToDataUrl = (svg) => `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-
-const photoPosters = [
+const posters = [
   {
-    title: '数学节嘉年华',
-    subtitle: '主海报 · 把你要放的真实大海报链接贴到这里',
-    image: ''
+    title: '3.14 π径探秘',
+    subtitle: '北京中学明德 2026 数学节总海报',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7250232b.webp'
   },
   {
-    title: '逻辑谜题站',
-    subtitle: '真实摊位海报 / 现场照片占位',
-    image: ''
+    title: '趣味数学题',
+    subtitle: '黑板风限时答题，拼脑力也拼速度。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c727777c4.webp'
   },
   {
-    title: '几何拼搭馆',
-    subtitle: '真实摊位海报 / 现场照片占位',
-    image: ''
+    title: '七巧板创意游戏',
+    subtitle: '照着轮廓拼图，把空间想象力拉满。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c727b4e98.webp'
   },
   {
-    title: '博弈挑战场',
-    subtitle: '真实摊位海报 / 现场照片占位',
-    image: ''
+    title: '数学节九连环挑战',
+    subtitle: '解锁九连环，越往后越上头。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c727cec8d.webp'
   },
   {
-    title: '数学手作铺',
-    subtitle: '真实摊位海报 / 现场照片占位',
-    image: ''
+    title: '数独',
+    subtitle: '6×6 盘面推理小游戏，安静但很烧脑。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c730c3ff7.webp'
   },
   {
-    title: '舞台互动秀',
-    subtitle: '真实摊位海报 / 现场照片占位',
-    image: ''
+    title: '数字华容道',
+    subtitle: '把 1 到 15 排回秩序，经典滑块挑战。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7314e2ad.webp'
+  },
+  {
+    title: '尺规作图',
+    subtitle: '抽题后用直尺和圆规完成图形，很有仪式感。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c73469371.webp'
+  },
+  {
+    title: '智力锁扣挑战',
+    subtitle: '30 秒、1 分钟、3 分钟三档难度闯关。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7348c1b9.webp'
+  },
+  {
+    title: '357 游戏',
+    subtitle: '双人对战型博弈小游戏，规则简单但很上头。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7348a79d.webp'
+  },
+  {
+    title: '口算挑战',
+    subtitle: '20 秒完成 5 道题，考的是反应和准确率。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c73da5c7f.webp'
+  },
+  {
+    title: '二十四点',
+    subtitle: '四张牌凑出 24，算式巧，脑子更要巧。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c73f2a393.webp'
+  },
+  {
+    title: '一笔画挑战',
+    subtitle: '连点成线，一笔画完，简单但容易翻车。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c75b92813.webp'
+  },
+  {
+    title: '2048 数字游戏',
+    subtitle: '现场即来即玩，30 秒内合出 128。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c75cd3561.webp'
+  },
+  {
+    title: '数学谜语',
+    subtitle: '把数字、图形和谜语揉在一起，边看边猜。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c76ae0a06.webp'
+  },
+  {
+    title: '九章小算师·闯关夺星',
+    subtitle: '古风闯关小挑战，三关限时答题。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c76fb2aba.webp'
+  },
+  {
+    title: '汉诺塔',
+    subtitle: '经典递归益智项目，规则简单，上手不简单。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7701c6a5.webp'
+  },
+  {
+    title: '数学节集换卡',
+    subtitle: '边玩边集章，盖满再去兑换纪念品。',
+    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c770975fd.webp'
   }
 ];
-
-const posterSvg = ({ title, subtitle, accentA, accentB, motif, badge }) => `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="${accentA}" />
-      <stop offset="100%" stop-color="${accentB}" />
-    </linearGradient>
-  </defs>
-  <rect width="800" height="1000" rx="42" fill="url(#bg)" />
-  <circle cx="180" cy="140" r="180" fill="rgba(255,255,255,0.12)" />
-  <circle cx="650" cy="170" r="120" fill="rgba(255,255,255,0.1)" />
-  <circle cx="610" cy="820" r="220" fill="rgba(255,255,255,0.08)" />
-  <text x="64" y="110" fill="white" font-size="34" font-family="Arial, PingFang SC, Noto Sans SC" opacity="0.9">数学节嘉年华</text>
-  <text x="64" y="220" fill="white" font-size="78" font-weight="800" font-family="Arial, PingFang SC, Noto Sans SC">${title}</text>
-  <text x="64" y="292" fill="white" font-size="34" font-family="Arial, PingFang SC, Noto Sans SC" opacity="0.92">${subtitle}</text>
-  <g transform="translate(64 390)">${motif}</g>
-  <rect x="64" y="865" width="240" height="68" rx="34" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.28)" />
-  <text x="94" y="910" fill="white" font-size="30" font-family="Arial, PingFang SC, Noto Sans SC">${badge}</text>
-</svg>`;
-
-const motifs = {
-  hero: `<circle cx="180" cy="160" r="112" fill="rgba(255,255,255,0.16)" /><circle cx="180" cy="160" r="68" fill="none" stroke="white" stroke-width="12" /><path d="M180 48 L196 116 L264 132 L196 148 L180 216 L164 148 L96 132 L164 116 Z" fill="white" opacity="0.95" /><text x="330" y="120" fill="white" font-size="36" font-family="Arial, PingFang SC, Noto Sans SC">谜题 / 几何 / 博弈 / 手作</text><text x="330" y="185" fill="white" font-size="92" font-weight="900" font-family="Arial, PingFang SC, Noto Sans SC">π × ∞</text><text x="330" y="250" fill="white" font-size="30" font-family="Arial, PingFang SC, Noto Sans SC" opacity="0.92">把数学变成一场很好逛的嘉年华</text>`,
-  puzzle: `<rect x="10" y="40" width="220" height="220" rx="34" fill="rgba(255,255,255,0.18)" /><path d="M58 152 h52 a24 24 0 1 0 0 -48 h52 v52 a24 24 0 1 1 48 0 v52 h-52 a24 24 0 1 0 0 48 H58z" fill="white" /><text x="300" y="124" fill="white" font-size="70" font-weight="900" font-family="Arial, PingFang SC, Noto Sans SC">逻辑谜题站</text><text x="300" y="194" fill="white" font-size="32" font-family="Arial, PingFang SC, Noto Sans SC" opacity="0.92">和朋友组队解谜，限时通关超有成就感</text>`,
-  geometry: `<polygon points="110,40 220,240 0,240" fill="rgba(255,255,255,0.22)" stroke="white" stroke-width="10" /><polygon points="110,84 178,212 42,212" fill="white" opacity="0.92" /><circle cx="320" cy="84" r="34" fill="rgba(255,255,255,0.18)" stroke="white" stroke-width="8" /><text x="20" y="334" fill="white" font-size="72" font-weight="900" font-family="Arial, PingFang SC, Noto Sans SC">几何拼搭馆</text><text x="20" y="400" fill="white" font-size="32" font-family="Arial, PingFang SC, Noto Sans SC" opacity="0.92">把图形真的搭出来，看见空间直觉的魅力</text>`,
-  game: `<circle cx="92" cy="92" r="64" fill="rgba(255,255,255,0.18)" /><circle cx="212" cy="92" r="64" fill="rgba(255,255,255,0.18)" /><circle cx="152" cy="198" r="64" fill="rgba(255,255,255,0.18)" /><text x="54" y="114" fill="white" font-size="56" font-weight="900">A</text><text x="174" y="114" fill="white" font-size="56" font-weight="900">B</text><text x="114" y="220" fill="white" font-size="56" font-weight="900">C</text><text x="20" y="344" fill="white" font-size="72" font-weight="900" font-family="Arial, PingFang SC, Noto Sans SC">博弈挑战场</text><text x="20" y="410" fill="white" font-size="32" font-family="Arial, PingFang SC, Noto Sans SC" opacity="0.92">简单规则下面，藏着让人上头的策略感</text>`,
-  craft: `<path d="M30 250 C120 120 220 120 310 250" fill="none" stroke="white" stroke-width="14" /><circle cx="76" cy="246" r="18" fill="white" /><circle cx="264" cy="246" r="18" fill="white" /><text x="20" y="138" fill="white" font-size="140" font-weight="900">∞</text><text x="20" y="380" fill="white" font-size="72" font-weight="900" font-family="Arial, PingFang SC, Noto Sans SC">数学手作铺</text><text x="20" y="446" fill="white" font-size="32" font-family="Arial, PingFang SC, Noto Sans SC" opacity="0.92">把公式做成书签、徽章和小摆件，超适合拍照</text>`,
-  stage: `<rect x="20" y="180" width="300" height="120" rx="28" fill="rgba(255,255,255,0.18)" /><rect x="72" y="70" width="26" height="110" rx="13" fill="white" /><circle cx="85" cy="56" r="28" fill="white" /><rect x="242" y="70" width="26" height="110" rx="13" fill="white" /><circle cx="255" cy="56" r="28" fill="white" /><text x="20" y="410" fill="white" font-size="72" font-weight="900" font-family="Arial, PingFang SC, Noto Sans SC">舞台互动秀</text><text x="20" y="476" fill="white" font-size="32" font-family="Arial, PingFang SC, Noto Sans SC" opacity="0.92">现场抽题、快速挑战、全场一起欢呼的高光区</text>`
-};
-
-const fallbackPosters = [
-  { title: '数学节嘉年华', subtitle: '主海报 · 一起把数学逛成节日', accentA: '#0ea5e9', accentB: '#7c3aed', motif: motifs.hero, badge: '主视觉海报' },
-  { title: '逻辑谜题站', subtitle: '一步一步解开线索，超适合组队冲关', accentA: '#2563eb', accentB: '#0f766e', motif: motifs.puzzle, badge: '摊位 01' },
-  { title: '几何拼搭馆', subtitle: '用手去摸到图形和空间的乐趣', accentA: '#9333ea', accentB: '#ec4899', motif: motifs.geometry, badge: '摊位 02' },
-  { title: '博弈挑战场', subtitle: '简单规则下面，藏着让人上头的策略感', accentA: '#0891b2', accentB: '#14b8a6', motif: motifs.game, badge: '摊位 03' },
-  { title: '数学手作铺', subtitle: '把抽象概念做成能带走的纪念品', accentA: '#ea580c', accentB: '#db2777', motif: motifs.craft, badge: '摊位 04' },
-  { title: '舞台互动秀', subtitle: '全场一起参与，氛围最热闹的一站', accentA: '#7c3aed', accentB: '#2563eb', motif: motifs.stage, badge: '摊位 05' }
-].map((item) => ({ ...item, image: svgToDataUrl(posterSvg(item)) }));
-
-const posters = photoPosters.map((photo, index) => ({
-  title: photo.title || fallbackPosters[index].title,
-  subtitle: photo.subtitle || fallbackPosters[index].subtitle,
-  image: photo.image || fallbackPosters[index].image,
-}));
 
 const openPreview = (image, title) => {
   lightboxImage.src = image;
@@ -94,7 +103,7 @@ heroPoster.addEventListener('click', () => openPreview(posters[0].image, posters
 const posterGrid = document.getElementById('posterGrid');
 posterGrid.innerHTML = posters.slice(1).map((poster) => `
   <article class="poster-card reveal float-card" data-image="${poster.image}" data-title="${poster.title}">
-    <img src="${poster.image}" alt="${poster.title}" loading="lazy" />
+    <img src="${poster.image}" alt="${poster.title}" loading="lazy" referrerpolicy="no-referrer" />
     <div class="poster-overlay">
       <h3>${poster.title}</h3>
       <p>${poster.subtitle}</p>
