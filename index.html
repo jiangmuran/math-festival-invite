@@ -2,116 +2,97 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>北京中学明德 2026 数学节邀请函</title>
-    <meta name="description" content="北京中学明德 2026 数学节邀请函｜打开先看总海报，往下滑看全部项目与集换卡。" />
+    <meta name="description" content="北京中学明德 2026 数学节邀请函｜3.14 π径探秘" />
     <meta property="og:title" content="北京中学明德 2026 数学节邀请函" />
-    <meta property="og:description" content="3.14 π径探秘，手机端适配的数学节 H5 邀请函。" />
+    <meta property="og:description" content="打开先看总海报，往下滑看全部项目与集章卡。" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://picui.ogmua.cn/s1/2026/03/17/69b8c770975fd.webp" />
-    <meta name="theme-color" content="#ff5ca8" />
+    <meta property="og:image" content="https://picui.ogmua.cn/s1/2026/03/17/69b8c7701c6a5.webp" />
+    <meta name="theme-color" content="#ff4f97" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://picui.ogmua.cn" crossorigin />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="loading-screen" id="loadingScreen" aria-hidden="true">
-      <div class="loading-orbit"></div>
-      <div class="loading-core">π</div>
-      <p>邀请函正在展开…</p>
-    </div>
+    <div class="page-glow page-glow--left"></div>
+    <div class="page-glow page-glow--right"></div>
+    <div class="page-grid"></div>
 
-    <div class="math-bg math-bg--1"></div>
-    <div class="math-bg math-bg--2"></div>
-
-    <header class="hero section reveal visible">
-      <div class="hero-copy">
+    <header class="hero" id="top">
+      <div class="hero__media reveal visible">
+        <div class="poster-shell">
+          <img id="heroPoster" class="poster-shell__image" alt="北京中学明德 2026 数学节总海报" />
+          <button id="openHeroPoster" class="poster-shell__zoom" type="button">放大查看</button>
+        </div>
+      </div>
+      <div class="hero__content reveal visible">
         <p class="eyebrow">BADMC-III · 2026</p>
         <h1>北京中学明德<br />数学节邀请函</h1>
-        <p class="hero-text">
-          打开先看到总海报，往下滑就是每个项目。把数独、七巧板、九连环、华容道、口算、2048、汉诺塔这些都串成了一条能边看边逛的数学节路线。
-        </p>
-        <div class="hero-meta">
+        <p class="hero__text">这次不走那种乱炫技的页面了，直接做成干净、精致、适合手机打开的邀请函：首屏是总海报，往下滑就是每个项目，最后补上集章卡。</p>
+        <div class="hero__meta">
           <span>📍 北京中学明德操场</span>
           <span>🕜 2026.03.14 13:30 - 15:30</span>
-          <span>📱 手机端适配</span>
         </div>
-        <div class="hero-actions">
-          <a class="hero-button" href="#posterWall">开始逛项目</a>
-          <button class="ghost-button" id="openHeroPoster" type="button">放大总海报</button>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#projects">开始浏览</a>
+          <a class="button button--soft" href="#stamp-card">看集章卡</a>
         </div>
       </div>
-      <div class="hero-poster-wrap float-card">
-        <div class="hero-glow"></div>
-        <img id="heroPoster" class="hero-poster" alt="北京中学明德 2026 数学节总海报" />
-      </div>
+      <a class="scroll-indicator" href="#projects" aria-label="向下滑动">
+        <span>向下滑动</span>
+        <i></i>
+      </a>
     </header>
 
     <main>
       <section class="section intro reveal">
-        <div class="section-title">
-          <p class="eyebrow">Festival Highlights</p>
-          <h2>一整条可以慢慢滑的数学节路线</h2>
-          <p>这页邀请函已经直接接入你给的图床链接，不走本地压图。优点很直接：加载快、转发方便、GitHub Pages 打开也轻。</p>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card float-card">
-            <span>01</span>
-            <h3>首屏就是主海报</h3>
-            <p>适合直接把链接甩给同学，点开就能先看到整个数学节气氛。</p>
-          </article>
-          <article class="feature-card float-card">
-            <span>02</span>
-            <h3>往下滑看全部项目</h3>
-            <p>每个项目都做成独立卡片，手机上左右或上下都好翻。</p>
-          </article>
-          <article class="feature-card float-card">
-            <span>03</span>
-            <h3>最后补上集换卡</h3>
-            <p>把活动体验闭环起来：看海报、逛项目、集章、兑换纪念感。</p>
-          </article>
+        <div class="section__head">
+          <p class="eyebrow">Festival Guide</p>
+          <h2>3.14 π径探秘</h2>
+          <p class="section__lead">从趣味数学题、七巧板、九连环、数独、华容道，到 2048、数学谜语、九章小算师和汉诺塔，这页会把全部项目按顺序铺开。</p>
         </div>
       </section>
 
-      <section class="section poster-wall reveal" id="posterWall">
-        <div class="section-title sticky-title">
+      <section class="section" id="projects">
+        <div class="section__head reveal">
           <p class="eyebrow">Projects</p>
-          <h2>数学节全部项目</h2>
-          <p>移动端可以直接滑动浏览；点击任意卡片可放大查看原图。</p>
+          <h2>项目一览</h2>
+          <p class="section__lead">点开任意卡片可以放大看原图。手机上默认是一张张顺着滑，读起来会更舒服。</p>
         </div>
         <div class="poster-grid" id="posterGrid"></div>
       </section>
 
-      <section class="section timeline reveal">
-        <div class="section-title">
-          <p class="eyebrow">Collect & Redeem</p>
-          <h2>别忘了集换卡</h2>
+      <section class="section stamp-section reveal" id="stamp-card">
+        <div class="stamp-card">
+          <div class="stamp-card__content">
+            <p class="eyebrow">Stamp Card</p>
+            <h2>集章卡</h2>
+            <p class="section__lead">现场玩项目、盖印章、攒纪念感。这张集章卡我单独拎出来放在最后，逻辑也更顺。</p>
+            <button class="button button--primary" id="openStampCard" type="button">放大集章卡</button>
+          </div>
+          <div class="stamp-card__media">
+            <img id="stampCardImage" alt="数学节集章卡" />
+          </div>
         </div>
-        <div class="timeline-list">
-          <div class="timeline-item float-card">
-            <b>先看总海报</b>
-            <p>先知道主题和时间地点，立刻进入“3.14 π径探秘”的场景里。</p>
-          </div>
-          <div class="timeline-item float-card">
-            <b>再逐个刷项目</b>
-            <p>从口算到汉诺塔，从数独到 2048，基本总有一个项目会特别戳人。</p>
-          </div>
-          <div class="timeline-item float-card">
-            <b>最后去盖章打卡</b>
-            <p>集换卡也收进页面里了，方便转发时一并把玩法讲清楚。</p>
-          </div>
+      </section>
+
+      <section class="section closing reveal">
+        <div class="closing__box">
+          <p class="eyebrow">See You There</p>
+          <h2>数学节现场见</h2>
+          <p class="section__lead">这版已经按你给的图床顺序重新对齐：首屏是总海报，集章卡单独放末尾，页面也改成更像邀请函的视觉。</p>
+          <a class="button button--soft" href="#top">回到顶部</a>
         </div>
       </section>
     </main>
 
-    <a class="mobile-cta" href="#posterWall">↓ 往下滑看全部项目</a>
-
     <div class="lightbox" id="lightbox" aria-hidden="true">
-      <button class="lightbox-close" id="lightboxClose" aria-label="关闭">×</button>
-      <img id="lightboxImage" alt="放大海报" />
-      <div class="lightbox-caption" id="lightboxCaption"></div>
+      <button class="lightbox__close" id="lightboxClose" aria-label="关闭">×</button>
+      <img id="lightboxImage" alt="预览图" />
+      <div class="lightbox__caption" id="lightboxCaption"></div>
     </div>
 
     <script src="./script.js"></script>

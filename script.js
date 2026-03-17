@@ -1,9 +1,10 @@
-const posters = [
-  {
-    title: '3.14 π径探秘',
-    subtitle: '北京中学明德 2026 数学节总海报',
-    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c770975fd.webp'
-  },
+const heroPoster = {
+  title: '3.14 π径探秘',
+  subtitle: '北京中学明德 2026 数学节总海报',
+  image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7701c6a5.webp'
+};
+
+const projectPosters = [
   {
     title: '趣味数学题',
     subtitle: '黑板风限时答题，拼脑力也拼速度。',
@@ -78,13 +79,24 @@ const posters = [
     title: '汉诺塔',
     subtitle: '经典递归益智项目，规则简单，上手不简单。',
     image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c76fb2aba.webp'
-  },
-  {
-    title: '数学节集换卡',
-    subtitle: '边玩边集章，盖满再去兑换纪念品。',
-    image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7701c6a5.webp'
   }
 ];
+
+const stampCard = {
+  title: '数学节集章卡',
+  subtitle: '边玩边集章，盖满再去兑换纪念品。',
+  image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c770975fd.webp'
+};
+
+const heroPosterImage = document.getElementById('heroPoster');
+const stampCardImage = document.getElementById('stampCardImage');
+const posterGrid = document.getElementById('posterGrid');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose = document.getElementById('lightboxClose');
+const openHeroPosterButton = document.getElementById('openHeroPoster');
+const openStampCardButton = document.getElementById('openStampCard');
 
 const openPreview = (image, title) => {
   lightboxImage.src = image;
@@ -93,60 +105,60 @@ const openPreview = (image, title) => {
   lightbox.setAttribute('aria-hidden', 'false');
 };
 
-const heroPoster = document.getElementById('heroPoster');
-heroPoster.src = posters[0].image;
-heroPoster.alt = posters[0].title;
+const closePreview = () => {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+};
 
-document.getElementById('openHeroPoster').addEventListener('click', () => openPreview(posters[0].image, posters[0].title));
-heroPoster.addEventListener('click', () => openPreview(posters[0].image, posters[0].title));
+heroPosterImage.src = heroPoster.image;
+heroPosterImage.alt = heroPoster.title;
+stampCardImage.src = stampCard.image;
+stampCardImage.alt = stampCard.title;
 
-const posterGrid = document.getElementById('posterGrid');
-posterGrid.innerHTML = posters.slice(1).map((poster) => `
-  <article class="poster-card reveal float-card" data-image="${poster.image}" data-title="${poster.title}">
-    <img src="${poster.image}" alt="${poster.title}" loading="lazy" referrerpolicy="no-referrer" />
-    <div class="poster-overlay">
-      <h3>${poster.title}</h3>
-      <p>${poster.subtitle}</p>
+posterGrid.innerHTML = projectPosters.map((poster) => `
+  <article class="poster-item reveal">
+    <div class="poster-item__image">
+      <img src="${poster.image}" alt="${poster.title}" loading="lazy" referrerpolicy="no-referrer" />
     </div>
+    <h3 class="poster-item__title">${poster.title}</h3>
+    <p class="poster-item__desc">${poster.subtitle}</p>
+    <button class="button button--soft poster-item__button" type="button" data-image="${poster.image}" data-title="${poster.title}">查看大图</button>
   </article>
 `).join('');
 
-const loadingScreen = document.getElementById('loadingScreen');
-window.addEventListener('load', () => setTimeout(() => loadingScreen.classList.add('hidden'), 650));
+openHeroPosterButton.addEventListener('click', () => openPreview(heroPoster.image, heroPoster.title));
+heroPosterImage.addEventListener('click', () => openPreview(heroPoster.image, heroPoster.title));
+openStampCardButton.addEventListener('click', () => openPreview(stampCard.image, stampCard.title));
+stampCardImage.addEventListener('click', () => openPreview(stampCard.image, stampCard.title));
+
+posterGrid.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-image]');
+  if (!button) return;
+  openPreview(button.dataset.image, button.dataset.title);
+});
+
+lightboxClose.addEventListener('click', closePreview);
+lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) closePreview();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closePreview();
+});
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
+  for (const entry of entries) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  }
 }, { threshold: 0.14 });
 
 document.querySelectorAll('.reveal').forEach((node) => {
   const rect = node.getBoundingClientRect();
   if (rect.top < window.innerHeight * 0.92) {
     node.classList.add('visible');
+  } else {
+    observer.observe(node);
   }
-  observer.observe(node);
-});
-
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.getElementById('lightboxImage');
-const lightboxCaption = document.getElementById('lightboxCaption');
-const lightboxClose = document.getElementById('lightboxClose');
-
-posterGrid.addEventListener('click', (event) => {
-  const card = event.target.closest('.poster-card');
-  if (!card) return;
-  openPreview(card.dataset.image, card.dataset.title);
-});
-
-const closeLightbox = () => {
-  lightbox.classList.remove('open');
-  lightbox.setAttribute('aria-hidden', 'true');
-};
-lightboxClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', (event) => {
-  if (event.target === lightbox) closeLightbox();
-});
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') closeLightbox();
 });
