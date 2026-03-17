@@ -1,7 +1,7 @@
 const heroPoster = {
   title: '3.14 π径探秘',
   subtitle: '北京中学明德 2026 数学节总海报',
-  image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7701c6a5.webp'
+  image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c770975fd.webp'
 };
 
 const projectPosters = [
@@ -85,7 +85,7 @@ const projectPosters = [
 const stampCard = {
   title: '数学节集章卡',
   subtitle: '边玩边集章，盖满再去兑换纪念品。',
-  image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c770975fd.webp'
+  image: 'https://picui.ogmua.cn/s1/2026/03/17/69b8c7701c6a5.webp'
 };
 
 const heroPosterImage = document.getElementById('heroPoster');
